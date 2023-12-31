@@ -1,0 +1,110 @@
+---
+import BentoItem from "./BentoItem.astro";
+---
+
+<section
+  class={`w-full max-w-[1400px]
+  grid grid-cols-10
+  auto-rows-[30rem]
+  gap-4 mx-auto p-20
+  `}
+>
+  <BentoItem
+    class="col-span-10 md:col-span-4"
+    title="ANDORRA: EL CÉNIT DE LOS PREMIOS ESLAND"
+    subtitle="16 de febrero de 2024"
+  >
+    <div
+      slot="image"
+      class="absolute top-0 left-0
+      -z-10
+      bg-center bg-no-repeat bg-cover
+      bg-blue-950
+      ease-in-out opacity-90 bg-blend-luminosity
+      bottom-0 object-cover w-full transition-scale duration-1000 h-full group-hover:scale-110"
+      style="background-image:url('/mountain.png')"
+    >
+    </div>
+    <p slot="content">
+      Una nueva edición <strong>cargada de novedades</strong> y contenido, que
+      empezará varias semanas antes de la ansiada gala.
+      <strong
+        >Directos especiales, colaboraciones, conciertos y mucho más</strong
+      > en lo que será una auténtica fiesta dedicada a la creación de contenido.
+    </p>
+  </BentoItem>
+  <BentoItem
+    class="col-span-10 md:col-span-6"
+    title="LA GALA"
+    subtitle="17 de febrero de 2024"
+  >
+    <div
+      slot="image"
+      class="absolute top-0 left-0
+      -z-10
+      bg-center bg-no-repeat bg-cover
+      bg-blue-600
+      ease-in-out opacity-90 bg-blend-luminosity
+      bottom-0 object-cover w-full transition-scale duration-1000 h-full group-hover:scale-110"
+      style="background-image:url('/gref.png')"
+    >
+    </div>
+    <p>
+      Una gala de premios llena de <strong
+        >contenido de primer nivel y muchas sorpresas</strong
+      >, en la que se descubrirán los <strong>ganadores</strong> de esta tercera
+      edición de los Premios ESLAND.
+    </p>
+  </BentoItem>
+
+  <BentoItem
+    class="col-span-10 md:col-span-6"
+    title="ANDORRA: EL CÉNIT DE LOS PREMIOS ESLAND"
+    subtitle="Una nueva edición cargada de novedades y contenido, que empezará varias semanas antes de la ansiada gala. Directos especiales, colaboraciones, conciertos y mucho más en lo que será una auténtica fiesta dedicada a la creación de contenido."
+  >
+    <div
+      slot="image"
+      class="absolute top-0 left-0
+      -z-10
+      bg-center bg-no-repeat bg-cover
+      bg-blue-600
+      ease-in-out opacity-90 bg-blend-luminosity
+      bottom-0 object-cover w-full transition-scale duration-1000 h-full group-hover:scale-110"
+      style="background-image:url('/pistas.png')"
+    >
+    </div>
+  </BentoItem>
+  <BentoItem
+    class="col-span-10 md:col-span-4"
+    title="DISFRUTA DEL REDDIT DE LA COMUNIDAD"
+  >
+    <div
+      slot="image"
+      class="absolute top-0 left-0
+      -z-10
+      bg-center bg-no-repeat bg-cover
+      bg-blue-950
+      ease-in-out opacity-90 bg-blend-luminosity
+      bottom-0 object-cover w-full transition-scale duration-1000 h-full group-hover:scale-110"
+      style="background-image:url('/laptop.png')"
+    >
+    </div>
+    <div slot="content">
+      <p>
+        Este año, el reddit no formará parte de las votaciones de los premios,
+        pero sí que <strong>formará parte de la comunidad</strong>. El subreddit
+        oficial de los Premios ESLAND está abierto para ti, para que compartas
+        tus clips, tus opiniones y para que <strong
+          >interactúes con toda la comunidad del</strong
+        >
+         streaming hispanohablante.
+      </p><div class="relative right-0 w-full">
+        <button
+          class="w-[100%] transition motion-reduce:transition-none motion-reduce:hover:transform-none
+        p-3 rounded-lg border border-red-50 m-auto cursor-pointer hover:text-blue-500"
+          >unete</button
+        >
+      </div>
+    </div>
+  </BentoItem>
+</section>
