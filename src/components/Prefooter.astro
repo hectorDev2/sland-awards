@@ -1,8 +1,16 @@
+---
+import { getI18N } from "@/i18n/index";
+
+const { currentLocale } = Astro;
+
+const i18n = getI18N({ currentLocale });
+---
+
 <section class="w-full p-6 sm:p-20 max-w-[1400px] mx-auto">
   <h3
     class="uppercase text-xl md:text-4xl tracking-wide text-center font-semibold mb-10 text-balance mx-auto"
   >
-    Guía de la 3ª Edición de los premios ESLAND
+    {i18n.VIDEO_YT_TITLE}
   </h3>
   <lite-youtube class="m-auto" videoid="nYPVr2IYTtk"></lite-youtube>
 </section>

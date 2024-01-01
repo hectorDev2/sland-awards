@@ -1,5 +1,8 @@
 ---
 import Logo from "./Logo.astro";
+import { getI18N } from "@/i18n";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <footer class="bg-black/40 mt-24">
@@ -62,49 +65,49 @@ import Logo from "./Logo.astro";
       <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
         <div>
           <h2 class="mb-6 text-sm font-semibold uppercase text-white">
-            i18n.FOOTER.LEGAL.TITLE
+            {i18n.FOOTER.LEGAL.TITLE}
           </h2>
           <ul class="text-gray-400 font-medium flex flex-col gap-2">
             <li>
               <a href="https://flowbite.com/" class="hover:underline"
-                >i18n.FOOTER.LEGAL.NOTICE</a
+                >{i18n.FOOTER.LEGAL.NOTICE}</a
               >
             </li>
             <li>
               <a href="https://tailwindcss.com/" class="hover:underline"
-                >i18n.FOOTER.LEGAL.PRIVACY</a
+                >{i18n.FOOTER.LEGAL.PRIVACY}</a
               >
             </li>
             <li>
               <a href="https://tailwindcss.com/" class="hover:underline"
-                >i18n.FOOTER.LEGAL.COOKIES</a
+                >{i18n.FOOTER.LEGAL.COOKIES}</a
               >
             </li>
           </ul>
         </div>
         <div>
           <h2 class="mb-6 text-sm font-semibold uppercase text-white">
-            i18n.FOOTER.WEB_MAP.TITLE
+            {i18n.FOOTER.WEB_MAP.TITLE}
           </h2>
           <ul class="text-gray-400 font-medium flex flex-col gap-2">
             <li>
-              <a href="/" class="hover:underline">i18n.FOOTER.WEB_MAP.HOME</a>
+              <a href="/" class="hover:underline">{i18n.FOOTER.WEB_MAP.HOME}</a>
             </li>
             <li>
               <a href="/info" class="hover:underline"
-                >i18n.FOOTER.WEB_MAP.INFO</a
+                >{i18n.FOOTER.WEB_MAP.INFO}</a
               >
             </li>
             <li>
               <a href="/archivo" class="hover:underline"
-                >i18n.FOOTER.WEB_MAP.ARCHIVE</a
+                >{i18n.FOOTER.WEB_MAP.ARCHIVE}</a
               >
             </li>
           </ul>
         </div>
         <div>
           <h2 class="mb-0 text-sm font-semibold uppercase text-white">
-            i18n.FOOTER.PRODUCED_BY
+            {i18n.FOOTER.PRODUCED_BY}
           </h2>
           <a href="https://www.ubiq.ad/" target="_blank" rel="noreferrer">
             <img
