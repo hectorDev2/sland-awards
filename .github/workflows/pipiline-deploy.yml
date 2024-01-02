@@ -2,7 +2,7 @@ name: Worflow deploy
 on:
   push:
     branches:
-      - main
+      - master
 jobs:
   cancel_workflows:
     runs-on: ubuntu-latest
