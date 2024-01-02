@@ -2,7 +2,10 @@ name: Worflow deploy
 on:
   push:
     branches:
-      - master
+      - dev
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize, reopened]
 jobs:
   cancel_workflows:
     runs-on: ubuntu-latest
@@ -30,6 +33,7 @@ jobs:
         run: npm run build
   
   deploy:
+    if: github.ref == 'refs/heads/master'
     needs: [build]
     runs-on: ubuntu-latest
     steps:
