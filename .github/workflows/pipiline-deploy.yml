@@ -19,7 +19,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: make a project 🎩
         uses: actions/checkout@v2
         with:
          fetch-depth: 0
@@ -39,8 +39,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - name: Deploy to Vercel Action
+        uses: actions/checkout@v2 
+      - name: Deploy to Vercel Action 🎩
         uses: BetaHuhn/deploy-to-vercel-action@v1
         with:
           GITHUB_TOKEN: ${{ github.token }}
