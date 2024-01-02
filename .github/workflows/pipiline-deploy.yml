@@ -15,7 +15,6 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
         with:
           access-token: ${{github.token }}
-        
   build:
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +33,7 @@ jobs:
         run: npm run build
   
   deploy:
-    if: github.event_name == 'pull_request'
+    if: github.event.pull_request.merged == true
     needs: [build]
     runs-on: ubuntu-latest
     steps:
