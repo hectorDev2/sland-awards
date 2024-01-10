@@ -1,13 +1,21 @@
 ---
 interface Props {
   image: string;
+  title: string;
 }
-const { image } = Astro.props;
+const { image, title } = Astro.props;
 ---
 
 <div
-  class="cp-v relative h-[80vh] w-full max-w-[100vw] md:aspect-video md:h-full"
+  class="cp-v relative bg-cover bg-center h-[80vh] w-full max-w-[100vw] md:aspect-video md:h-full"
   style={`background-image: url('${image}')`}
 >
+  <div class="w-full flex justify-center items-center h-full">
+    <h1
+      class="lg:text-6xl text-5xl text-center uppercase font-tomaso tracking tracking-widest"
+    >
+      {title}
+    </h1>
+  </div>
   <slot />
 </div>

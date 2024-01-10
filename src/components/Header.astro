@@ -1,5 +1,20 @@
 ---
 import SelectLanguage from "./SelectLanguage.astro";
+
+const routes = [
+  {
+    path: "/info",
+    title: "INFO",
+  },
+  {
+    path: "/archivo",
+    title: "Archivo",
+  },
+  {
+    path: "/vota",
+    title: "Vota",
+  },
+];
 ---
 
 <header id="header" class="fixed w-screen z-50 top-0 lg:px-0">
@@ -27,8 +42,14 @@ import SelectLanguage from "./SelectLanguage.astro";
     <nav
       class="col-span-1 w-full mx-auto text-sm flex gap-2 items-center justify-center"
     >
-      <a class="hover:underline" href="/info">INFO</a>
-      <a class="hover:underline" href="/archivo">ARCHIVO</a>
+      {
+        routes.map(({ path, title }) => (
+          <a class="hover:underline " href={path}>
+            {title}
+          </a>
+        ))
+      }
+
       <div class="flex flex-col">
         <SelectLanguage />
       </div>
