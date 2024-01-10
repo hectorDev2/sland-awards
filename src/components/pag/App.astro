@@ -1,0 +1,28 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Bento from "../../components/Bento.astro";
+import Footer from "../../components/Footer.astro";
+import Intro from "../../components/Intro.astro";
+import Prefooter from "../../components/Prefooter.astro";
+import Video from "../../components/Video.astro";
+import { getI18N } from "../../i18n/index";
+
+const { currentLocale } = Astro;
+
+const i18n = getI18N({ currentLocale });
+---
+
+<Layout
+  title={i18n.SEO_TITLE}
+  description="Descubre a los mejores creadores de contenido del mundo !Vota por tus favoritos! Celebra la innovacion y el talento de Twich, youtube y mas!"
+>
+  <Video />
+  <main>
+    <Intro />
+    <Bento />
+    <Prefooter />
+  </main>
+  <Footer />
+</Layout>
+
+<style></style>
