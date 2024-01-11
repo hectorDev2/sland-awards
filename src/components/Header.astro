@@ -1,4 +1,7 @@
 ---
+import Button from "./Button.astro";
+import MenuIcon from "./icons/MenuIcon.astro";
+import CloseIcon from "./icons/CloseIcon.astro";
 import SelectLanguage from "./SelectLanguage.astro";
 
 const routes = [
@@ -19,7 +22,7 @@ const routes = [
 
 <header id="header" class="fixed w-screen z-50 top-0 lg:px-0">
   <div
-    class="grid [grid-template-columns:40px_repeat(2,1fr)] sm:grid-cols-3 max-w-7xl mx-auto p-1 items-center justify-between"
+    class="grid [grid-template-columns:40px_repeat(1,1fr)] md:[grid-template-columns:40px_repeat(2,1fr)] sm:grid-cols-3 max-w-7xl mx-auto p-1 items-center justify-between"
   >
     <a href="/" class="col-span-1">
       <svg
@@ -40,7 +43,7 @@ const routes = [
       </svg>
     </a>
     <nav
-      class="col-span-1 w-full mx-auto text-sm flex gap-2 items-center justify-center"
+      class="col-span-1 hidden md:flex w-full mx-auto text-sm gap-2 items-center justify-center"
     >
       {
         routes.map(({ path, title }) => (
@@ -54,11 +57,64 @@ const routes = [
         <SelectLanguage />
       </div>
     </nav>
+    <!-- Botón de menú para pantallas pequeñas -->
+    <button
+      id="menu-toggle"
+      class="relative flex flex-grow basis-0 justify-end text-2xl md:hidden z-50"
+    >
+      <span id="menu-icon">
+        <span class=""><MenuIcon /></span>
+        <span class="hidden"><CloseIcon /></span>
+      </span>
+    </button>
+
     <a
       href="#"
-      class="border text-[5px] md:text-base rounded-full inline-block border-white px-2 py-2 justify-self-end hover:bg-white hover:text-black duration-300"
+      class="border hidden text-[5px] md:text-base rounded-full md:inline-block border-white px-2 py-2 justify-self-end hover:bg-white hover:text-black duration-300"
     >
       ESLAND: EL DOCUMENTAL
     </a>
+
+    <!-- Menú de navegación móvil para pantallas pequeñas -->
+    <nav
+      id="mobile-menu"
+      class="bg-[#151a36]/90 -translate-y-full transition-transform md:hidden w-full flex flex-col items-center text-center text-2xl fixed top-0 left-0 right-0 h-dvh place-content-center"
+    >
+      {
+        routes.map(({ path, title }) => (
+          <a class="hover:underline " href={path}>
+            {title}
+          </a>
+        ))
+      }
+
+      <Button
+        class="my-4 whitespace-nowrap text-center lg:hidden lg:text-base bg-black"
+        url="https://drive.google.com/file/d/1D7IvIqMyqAoG58fuk8bc0JvhAmrWBbOK/view"
+      >
+        CRITERIOS DE NOMINACIÓN
+      </Button>
+      <SelectLanguage />
+    </nav>
   </div>
 </header>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+
+    if (!menuToggle || !mobileMenu || !menuIcon) {
+      return;
+    }
+
+    menuToggle.addEventListener("click", function () {
+      mobileMenu.classList.toggle("translate-y-0");
+      document.body.classList.toggle("overflow-hidden");
+      menuIcon
+        .querySelectorAll("span")
+        .forEach((el) => el.classList.toggle("hidden"));
+    });
+  });
+</script>
