@@ -25,12 +25,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
-
+      
       - name: Build
         run: npm run build
+
+      
   
   deploy:
     if: github.ref == 'refs/heads/master' || github.event.pull_request.merged == true

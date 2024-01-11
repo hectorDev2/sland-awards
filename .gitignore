@@ -13,9 +13,15 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+#cache modules
+
 # environment variables
 .env
 .env.production
 
 # macOS-specific files
 .DS_Store
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
