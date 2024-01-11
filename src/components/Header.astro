@@ -3,6 +3,8 @@ import Button from "./Button.astro";
 import MenuIcon from "./icons/MenuIcon.astro";
 import CloseIcon from "./icons/CloseIcon.astro";
 import SelectLanguage from "./SelectLanguage.astro";
+import HeaderLink from "./HeaderLink.astro";
+import Logo from "./Logo.astro";
 
 const routes = [
   {
@@ -21,35 +23,30 @@ const routes = [
 ---
 
 <header id="header" class="fixed w-screen z-50 top-0 lg:px-0">
-  <div
-    class="grid [grid-template-columns:40px_repeat(1,1fr)] md:[grid-template-columns:40px_repeat(2,1fr)] sm:grid-cols-3 max-w-7xl mx-auto p-1 items-center justify-between"
-  >
-    <a href="/" class="col-span-1">
-      <svg
-        class="w-10 h-auto"
-        width="56"
-        height="70"
-        viewBox="0 0 56 70"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+  <div class="mx-auto flex max-w-7xl items-center justify-between">
+    <div class="flex flex-grow basis-0 z-50">
+      <HeaderLink
+        checkActive={false}
+        href="/"
+        class="group relative"
+        aria-label="logo"
       >
-        <path d="M0 70L26.25 56.7L11.2 58.8L26.25 0L0 70Z" fill="currentColor"
-        ></path>
-        <path d="M56 70L29.75 56.7L44.8 58.8L29.75 0L56 70Z" fill="currentColor"
-        ></path>
-        <path
-          d="M24.8501 41.65L28.0001 22.4L31.5001 41.65L28.0001 48.65L24.8501 41.65Z"
-          fill="currentColor"></path>
-      </svg>
-    </a>
+        <Logo
+          class="h-auto w-10 blur-sm absolute inset-0 m-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        />
+        <Logo class="h-auto w-10" />
+      </HeaderLink>
+    </div>
     <nav
       class="col-span-1 hidden md:flex w-full mx-auto text-sm gap-2 items-center justify-center"
     >
       {
         routes.map(({ path, title }) => (
-          <a class="hover:underline " href={path}>
-            {title}
-          </a>
+          <>
+            <HeaderLink class="text__glowing" href={path}>
+              {title}
+            </HeaderLink>
+          </>
         ))
       }
 
@@ -70,9 +67,9 @@ const routes = [
 
     <a
       href="#"
-      class="border hidden text-[5px] md:text-base rounded-full md:inline-block border-white px-2 py-2 justify-self-end hover:bg-white hover:text-black duration-300"
+      class="border text-center hidden text-[5px] md:text-xs rounded-full md:inline-block border-white px-2 py-2 justify-self-end hover:bg-white hover:text-black duration-300"
     >
-      ESLAND: EL DOCUMENTAL
+      ESLAND: El documental
     </a>
 
     <!-- Menú de navegación móvil para pantallas pequeñas -->
